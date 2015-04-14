@@ -39,5 +39,8 @@ Thermostat.prototype.resetTemp = function() {
 };
 
 Thermostat.prototype.colour = function() {
-  return("green");
+  if (this.temp < 18) { 
+    return("green");
+  }
+  return "yellow"
 };

@@ -64,4 +64,9 @@ describe('Thermostat', function(){
     expect(thermostat.colour()).toEqual("green");
   });
 
+  it('has a colour of yellow when the temp is more than 17 and less than 26', function(){
+    thermostat = new Thermostat();
+    expect(thermostat.colour()).toEqual("yellow");
+  });
+
 });
