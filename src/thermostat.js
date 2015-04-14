@@ -11,5 +11,8 @@ Thermostat.prototype.up = function() {
 };
 
 Thermostat.prototype.down = function() {
+  if (this.temp === 10){
+    throw new Error('Thermostat cannot go below 10 degrees')
+  };
   this.temp --;
 };

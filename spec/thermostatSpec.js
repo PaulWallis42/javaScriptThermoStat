@@ -19,4 +19,12 @@ describe('Thermostat', function(){
     expect(thermostat.temperature()).toEqual(19);
   });
 
+  it('has a minimum temperature of degrees', function(){
+    thermostat = new Thermostat();
+    for (i = 0; i < 10; i++) {
+      thermostat.down()
+    };
+    expect(function() {thermostat.down() }).toThrow(new Error('Thermostat cannot go below 10 degrees'));
+  });
+
 });
