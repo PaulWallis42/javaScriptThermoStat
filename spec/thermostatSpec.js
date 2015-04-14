@@ -56,4 +56,12 @@ describe('Thermostat', function(){
     expect(thermostat.temperature()).toEqual(20);
   });
 
+  it('has a colour of green when the temp is less than 18', function(){
+    thermostat = new Thermostat();
+    for (i = 0; i < 3; i++){
+      thermostat.down();
+    };
+    expect(thermostat.colour()).toEqual("green");
+  });
+
 });

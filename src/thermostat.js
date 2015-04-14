@@ -34,6 +34,10 @@ Thermostat.prototype.isPowersaveOn = function() {
   return this.powersave;
 };
 
-Thermostat.prototype.resetTemp = function(first_argument) {
+Thermostat.prototype.resetTemp = function() {
   this.temp = 20;
+};
+
+Thermostat.prototype.colour = function() {
+  return("green");
 };
