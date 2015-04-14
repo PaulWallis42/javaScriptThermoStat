@@ -1,6 +1,6 @@
 var Thermostat = function(){
   this.temp = 20;
-  this.powerSaveOn = false;
+  this.powersave = false;
 };
 
 Thermostat.prototype.temperature = function(){
@@ -8,7 +8,7 @@ Thermostat.prototype.temperature = function(){
 };
 
 Thermostat.prototype.up = function() {
-  if (this.temp === 25 && this.powerSaveOn === true) {
+  if (this.temp === 25 && this.powersave === true || this.temp === 32 && this.powersave === false) {
     throw new Error('its too hot')
   };
 
@@ -22,6 +22,10 @@ Thermostat.prototype.down = function() {
   this.temp --;
 };
 
-Thermostat.prototype.powersave = function() {
-  this.powerSaveOn = true
+Thermostat.prototype.powersaveOn = function() {
+  this.powersave = true
+};
+
+Thermostat.prototype.powersaveOff = function() {
+  this.powersave = false
 };

@@ -27,10 +27,20 @@ describe('Thermostat', function(){
     expect(function() {thermostat.down() }).toThrow(new Error('Thermostat cannot go below 10 degrees'));
   });
 
-  it('is limited to 25 degrees when in power saving mode', function(){
+  it('is limited to 25 degrees when power saving mode is on', function(){
     thermostat = new Thermostat();
-    thermostat.powersave();
-    for (i =0; i < 5; i++){
+    thermostat.powersaveOn();
+    for (i = 0; i < 5; i++){
+      thermostat.up();
+    };
+    expect(function() {thermostat.up() }).toThrow(new Error('its too hot'))
+  });
+
+  it('is limited to 32 degrees when power saving mode is off', function(){
+    thermostat = new Thermostat();
+    thermostat.powersaveOn();
+    thermostat.powersaveOff();
+    for (i = 0; i < 12; i++){
       thermostat.up();
     };
     expect(function() {thermostat.up() }).toThrow(new Error('its too hot'))
