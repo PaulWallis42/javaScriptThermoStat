@@ -7,10 +7,16 @@ describe('Thermostat', function(){
     expect(thermostat.temperature()).toEqual(20);
   });
 
-  it('increase the temperature by 1 degree with the up button', function() {
+  it('increases the temperature by 1 degree with the up button', function() {
     thermostat = new Thermostat();
     thermostat.up();
     expect(thermostat.temperature()).toEqual(21);
+  });
+
+  it('decreases the temperature by 1 degree with the down button', function(){
+    thermostat = new Thermostat();
+    thermostat.down();
+    expect(thermostat.temperature()).toEqual(19);
   });
 
 });
