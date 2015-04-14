@@ -49,4 +49,11 @@ describe('Thermostat', function(){
     expect(thermostat.isPowersaveOn()).toBe(true);
   });
 
+  it('will reset the temperature to 20 when the reset button is pressed', function(){
+    thermostat = new Thermostat();
+    thermostat.up();
+    thermostat.resetTemp();
+    expect(thermostat.temperature()).toEqual(20);
+  });
+
 });
