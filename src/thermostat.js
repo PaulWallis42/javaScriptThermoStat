@@ -1,6 +1,6 @@
 var Thermostat = function(){
   this.temp = 20;
-  this.powersave = false;
+  this.powersave = true;
 };
 
 Thermostat.prototype.temperature = function(){
@@ -28,4 +28,8 @@ Thermostat.prototype.powersaveOn = function() {
 
 Thermostat.prototype.powersaveOff = function() {
   this.powersave = false
+};
+
+Thermostat.prototype.isPowersaveOn = function() {
+  return this.powersave;
 };

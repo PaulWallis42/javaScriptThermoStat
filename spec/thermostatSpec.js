@@ -29,7 +29,6 @@ describe('Thermostat', function(){
 
   it('is limited to 25 degrees when power saving mode is on', function(){
     thermostat = new Thermostat();
-    thermostat.powersaveOn();
     for (i = 0; i < 5; i++){
       thermostat.up();
     };
@@ -38,12 +37,16 @@ describe('Thermostat', function(){
 
   it('is limited to 32 degrees when power saving mode is off', function(){
     thermostat = new Thermostat();
-    thermostat.powersaveOn();
     thermostat.powersaveOff();
     for (i = 0; i < 12; i++){
       thermostat.up();
     };
     expect(function() {thermostat.up() }).toThrow(new Error('its too hot'))
+  });
+
+  it('has powersave mode on by default', function(){
+    thermostat = new Thermostat();
+    expect(thermostat.isPowersaveOn()).toBe(true);
   });
 
 });
